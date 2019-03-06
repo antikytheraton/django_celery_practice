@@ -1,9 +1,8 @@
-Django==1.8.2
-amqp==1.4.6
-anyjson==0.3.3
-billiard==3.3.0.20
-celery==3.1.18
-kombu==3.0.30
-pytz==2015.4
-redis==2.10.3
-requests==2.7.0
+amqp==2.4.2
+billiard==3.5.0.5
+celery==4.2.1
+Django==2.1.7
+kombu==4.4.0
+pytz==2018.9
+redis==3.2.0
+vine==1.2.0
