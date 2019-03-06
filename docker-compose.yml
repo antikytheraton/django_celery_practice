@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  djangoapp:
+    build:
+      context: djangoapp/
+    ports:
+      - 3000:3000
+    networks:
+      - backend
+    volumes:
+      - ./djangoapp/src:/src
+    environment:
+      - REDIS_URI=redis://redis:6379
+
+  picha:
+    build:
+      context: djangoapp/
+    ports:
+      - 3000:3000
+      - 1025:1025
+    networks:
+      - backend
+    volumes:
+      - ./djangoapp/Picha:/src
+    environment:
+      - REDIS_URI=redis://redis:6379
+    command: "./manage.py runserver 0.0.0.0:3000"
+
+  redis:
+    image: redis
+    networks:
+      - backend
+
+networks:
+  backend:
